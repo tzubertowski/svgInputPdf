@@ -6,23 +6,27 @@ class CSVParser {
 	}
 
 	public function openCsv($csvDir){
-		$files = scandir("../Attachments/1418246314");
+		$files = scandir($csvDir);
 		// Wyrzuc znaki powrotu 
 		unset($files[0]);
 		unset($files[1]);
 
 		foreach($files as $file) {
 			if($file !== "." || $file !== ".."){
-				$openedCSV = fopen("../Attachments/1418246314"."/".$file, 'a+');
+				$openedCSV = fopen($csvDir."/".$file, 'a+');
 				$CSVObject = fgetcsv($openedCSV);
 				// Obiekt to po prostu tablica 2 wymiarowa
 				echo($CSVObject[0] );
+				$this->generateSVG($CSVObject, $SVGTemplate)
 			}
 		}
 	}
 
 
-	public function generateSVG($file){
+	public function generateSVG($CSVObject, $SVGTemplate){
+		// Jakis matcher do wybierania templatek
 		fopen("../svg/test.svg");
+
+		// LOGIKA PODMIANY
 	}
 }
