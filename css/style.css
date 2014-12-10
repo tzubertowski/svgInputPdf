@@ -1,0 +1,16 @@
+#csv_drop
+{
+	border:1px solid #B7BFC4;
+	color:#B7BFC4;
+	width:auto;
+	text-align:center;
+	vertical-align:middle;
+	padding:10px 10px 10 10px;
+	margin-bottom:10px;
+	font-size:200%;
+}
+.center {
+	width:400px;
+	margin: 0 auto;
+	margin-top: 10%;
+}
