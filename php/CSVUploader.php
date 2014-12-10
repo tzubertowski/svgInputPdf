@@ -8,9 +8,7 @@ class CSVUploader {
 	public function uploadCsv($output_dir){
 		if(isset($_FILES["filesArray"]))
 		{
-			$outputFolder= $output_dir.time();
-
-			mkdir($outputFolder);
+			mkdir($output_dir);
 
 			$ret = array();
 			$error =$_FILES["filesArray"]["error"];
@@ -18,7 +16,7 @@ class CSVUploader {
 			{
 		 	 	$fileName = $_FILES["filesArray"]["name"];
 		 	 	echo $output_dir;
-		 		move_uploaded_file($_FILES["filesArray"]["tmp_name"],$outputFolder."/".$fileName);
+		 		move_uploaded_file($_FILES["filesArray"]["tmp_name"], $output_dir."/".$fileName);
 		    	$ret[]= $fileName;
 			}
 			else
@@ -27,7 +25,7 @@ class CSVUploader {
 			  for($i=0; $i < $fileCount; $i++)
 			  {
 			  	$fileName = $_FILES["myfile"]["name"][$i];
-				move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$outputFolder."/".$fileName);
+				move_uploaded_file($_FILES["myfile"]["tmp_name"][$i], $output_dir."/".$fileName);
 			  	$ret[]= $fileName;
 			  }
 			}
